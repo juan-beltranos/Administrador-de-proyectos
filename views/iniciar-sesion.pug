@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include partials/header
+    body.login
+     
+        .contenedor-formulario
+            h1 Administrador de proyectos
+            p Iniciar Sesion
+            
+            if locals.mensajes
+                .alertas
+                    each categoria in Object.keys(locals.mensajes)
+                        each error in mensajes[categoria]
+                            .alerta(class=`${categoria}`)
+                                p= error
+
+            form#formulario.caja-login(method="POST" action="/iniciar-sesion")
+                .campo
+                    input(type="text" name="email" placeholder="Tu Email" class="form-control")
+                .campo
+                    input(type="password" name="password" placeholder="Tu Password" class="form-control" )
+                .campo.enviar
+                    input.boton(type="submit" value="Iniciar Sesión")
+                .campo.acciones
+                    a(href="/crear-cuenta") ¿Aún no tienes cuenta? Crea una gratis
+            
