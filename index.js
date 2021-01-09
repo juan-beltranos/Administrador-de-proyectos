@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const passport = require('./config/passport');
 
+
 // Importar las variables
 require('dotenv').config({ path: 'variables.env' })
 
@@ -15,7 +16,6 @@ const helpers = require('./helpers');
 // Crear la conexion a la BD
 
 const db = require('./config/db');
-const { nextTick } = require('process');
 const session = require('express-session');
 
 // importar el modelo
